@@ -1,12 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
-  <rect width="800" height="450" fill="#F4F2ED"/>
+  <rect width="800" height="450" fill="#111110"/>
   
-      <circle cx="357.16802440583706" cy="164.2934387177229" r="137.0113202277571" fill="none" stroke="#111110" stroke-width="2.5"/>
-      <circle cx="357.16802440583706" cy="164.2934387177229" r="181.0113202277571" fill="none" stroke="rgba(17,17,16,.26)" stroke-width="1.5"/>
-      <circle cx="357.16802440583706" cy="164.2934387177229" r="225.0113202277571" fill="none" stroke="rgba(17,17,16,.12)" stroke-width="1.5" stroke-dasharray="4 7"/>
-      <line x1="110.15670417807996" y1="164.2934387177229" x2="604.1793446335942" y2="164.2934387177229" stroke="rgba(17,17,16,.12)" stroke-width="1.5"/>
-      <line x1="357.16802440583706" y1="-82.7178815100342" x2="357.16802440583706" y2="411.30475894548" stroke="rgba(17,17,16,.12)" stroke-width="1.5"/>
-      <circle cx="357.16802440583706" cy="164.2934387177229" r="7" fill="#111110"/>
-      <circle cx="237.9" cy="231.8" r="15" fill="#E0231D"/>
-  <rect x="14" y="14" width="772" height="422" fill="none" stroke="rgba(17,17,16,.12)" stroke-width="1.5"/>
+      <circle cx="362.5220213551074" cy="171.25675887800753" r="117.0113202277571" fill="#F4F2ED"/>
+      <circle cx="342.8488032799214" cy="112.21797885373235" r="61.85570959973216" fill="#E0231D"/>
+      <circle cx="316.48297167848796" cy="184.64076870121062" r="175.51698034163564" fill="none" stroke="rgba(244,242,237,.30)" stroke-width="2"/>
+  <rect x="14" y="14" width="772" height="422" fill="none" stroke="rgba(244,242,237,.14)" stroke-width="1.5"/>
 </svg>

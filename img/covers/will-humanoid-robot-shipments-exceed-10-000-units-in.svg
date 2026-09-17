@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
   <rect width="800" height="450" fill="#F4F2ED"/>
-  <circle cx="760" cy="410" r="46" fill="none" stroke="#111110" stroke-width="7"/><circle cx="760" cy="410" r="90" fill="none" stroke="rgba(17,17,16,.26)" stroke-width="1.5"/><circle cx="760" cy="410" r="134" fill="none" stroke="#E0231D" stroke-width="14"/><circle cx="760" cy="410" r="178" fill="none" stroke="rgba(17,17,16,.26)" stroke-width="1.5"/><circle cx="760" cy="410" r="222" fill="none" stroke="#111110" stroke-width="7"/><circle cx="760" cy="410" r="266" fill="none" stroke="rgba(17,17,16,.26)" stroke-width="1.5"/><circle cx="760" cy="410" r="310" fill="none" stroke="#111110" stroke-width="7"/><circle cx="760" cy="410" r="16" fill="#E0231D"/>
+  
+      <circle cx="531.0073576495051" cy="288.92197167966515" r="108.69183968519792" fill="#111110"/>
+      <circle cx="484.8355142213404" cy="242.6675664493814" r="79.54438656639151" fill="#E0231D"/>
+      <circle cx="494.26429100334644" cy="218.6715322965756" r="163.03775952779688" fill="none" stroke="rgba(17,17,16,.26)" stroke-width="2"/>
   <rect x="14" y="14" width="772" height="422" fill="none" stroke="rgba(17,17,16,.12)" stroke-width="1.5"/>
 </svg>

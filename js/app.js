@@ -204,7 +204,7 @@ const Feed = {
     const yes = Math.random() < m.c / 100 * 0.9 + 0.05;
     return {
       m: m.slug, yes,
-      amt: Math.round((90 + Math.pow(Math.random(), 2.4) * 26000) / 10) * 10,
+      amt: Math.round((40 + Math.pow(Math.random(), 2.4) * 4000) / 10) * 10,
       name: ARC.names[Math.floor(Math.random() * ARC.names.length)],
       t: Date.now(),
     };
@@ -558,7 +558,7 @@ const Views = {
       <section class="cta-band reveal">
         <div class="cta-in">
           <h2>Your view is worth something.</h2>
-          <p>Join 418,000 traders turning opinions into prices on the Arc network.</p>
+          <p>Join ${fmtN(ARC.meta.traders)} traders turning opinions into prices on the Arc network.</p>
           <button class="btn btn-red" id="cta-connect">Connect wallet to start</button>
         </div>
       </section>

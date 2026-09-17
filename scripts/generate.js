@@ -236,10 +236,10 @@ const markets = M.map((row) => {
   const drift = (cents - hist[n - 1]) / (n - 1);
   for (let i = 0; i < n; i++) hist[i] = Math.round(Math.min(98, Math.max(2, hist[i] + drift * i)) * 10);
 
-  const vol24 = Math.round((8000 + rnd() * rnd() * 2600000) / 100) * 100;
-  const volT = Math.round((vol24 * (12 + rnd() * 90)) / 100) * 1000;
-  const liq = Math.round((18000 + rnd() * 900000) / 100) * 100;
-  const traders = Math.round(300 + rnd() * 42000);
+  const vol24 = Math.round(80 + rnd() * rnd() * 8000);
+  const volT = Math.round((3000 + rnd() * rnd() * 120000) / 100) * 100;
+  const liq = Math.round((2000 + rnd() * 80000) / 100) * 100;
+  const traders = Math.round(15 + rnd() * 800);
   const change = +(hist[n - 1] - hist[n - 9]) / 10;
 
   return {
@@ -358,16 +358,16 @@ for (let i = 0; i < 140; i++) {
   feed.push({
     m: m.slug,
     yes,
-    amt: Math.round((90 + rndG() * rndG() * 26000) / 10) * 10,
+    amt: Math.round((40 + rndG() * rndG() * 4000) / 10) * 10,
     name: NAMES[Math.floor(rndG() * NAMES.length)],
     t: Math.floor(rndG() * 3600),
   });
 }
 
 const meta = {
-  totalVol: 4873000000,
+  totalVol: Math.round(markets.reduce((s, m) => s + m.volT, 0) * 1.15),
   vol24: markets.reduce((s, m) => s + m.vol24, 0),
-  traders: 418232,
+  traders: 1128,
   updated: 1758150000000,
 };
 

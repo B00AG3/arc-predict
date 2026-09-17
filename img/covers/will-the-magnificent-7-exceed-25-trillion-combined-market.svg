@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
-  <rect width="800" height="450" fill="#F4F2ED"/>
-  <rect x="148" y="111.76402367651463" width="40" height="298.2359763234854" fill="#111110"/><rect x="206" y="142.06388355465606" width="40" height="267.93611644534394" fill="#E0231D"/><rect x="264" y="230.91782363131642" width="40" height="179.08217636868358" fill="#111110"/><rect x="322" y="190.22284955950454" width="40" height="219.77715044049546" fill="rgba(17,17,16,.26)"/><rect x="380" y="317.1507314685732" width="40" height="92.84926853142679" fill="#111110"/><rect x="438" y="286.1842422420159" width="40" height="123.8157577579841" fill="rgba(17,17,16,.26)"/><rect x="496" y="174.97703754575923" width="40" height="235.02296245424077" fill="#111110"/><rect x="554" y="272.04745636787266" width="40" height="137.95254363212734" fill="rgba(17,17,16,.26)"/><rect x="612" y="258.4818322933279" width="40" height="151.5181677066721" fill="#111110"/><line x1="122" y1="410" x2="678" y2="410" stroke="#111110" stroke-width="3"/>
-  <rect x="14" y="14" width="772" height="422" fill="none" stroke="rgba(17,17,16,.12)" stroke-width="1.5"/>
+  <rect width="800" height="450" fill="#111110"/>
+  
+      <circle cx="306.4385942276567" cy="289.0121467411518" r="133.5872232890688" fill="#F4F2ED"/>
+      <circle cx="310.35748354159296" cy="310.50517895258963" r="72.51772644761537" fill="#E0231D"/>
+      <circle cx="245.01750353723764" cy="327.4268427118659" r="200.38083493360318" fill="none" stroke="rgba(244,242,237,.30)" stroke-width="2"/>
+  <rect x="14" y="14" width="772" height="422" fill="none" stroke="rgba(244,242,237,.14)" stroke-width="1.5"/>
 </svg>

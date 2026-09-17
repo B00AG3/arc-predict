@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
-  <rect width="800" height="450" fill="#F4F2ED"/>
+  <rect width="800" height="450" fill="#111110"/>
   
-      <circle cx="486.6914489120245" cy="196.2166230380535" r="154.18402696028352" fill="none" stroke="#111110" stroke-width="2.5"/>
-      <circle cx="486.6914489120245" cy="196.2166230380535" r="198.18402696028352" fill="none" stroke="rgba(17,17,16,.26)" stroke-width="1.5"/>
-      <circle cx="486.6914489120245" cy="196.2166230380535" r="242.18402696028352" fill="none" stroke="rgba(17,17,16,.12)" stroke-width="1.5" stroke-dasharray="4 7"/>
-      <line x1="222.50742195174098" y1="196.2166230380535" x2="750.875475872308" y2="196.2166230380535" stroke="rgba(17,17,16,.12)" stroke-width="1.5"/>
-      <line x1="486.6914489120245" y1="-67.96740392223" x2="486.6914489120245" y2="460.40064999833703" stroke="rgba(17,17,16,.12)" stroke-width="1.5"/>
-      <circle cx="486.6914489120245" cy="196.2166230380535" r="7" fill="#111110"/>
+      <circle cx="486.6914489120245" cy="196.2166230380535" r="154.18402696028352" fill="none" stroke="#F4F2ED" stroke-width="2.5"/>
+      <circle cx="486.6914489120245" cy="196.2166230380535" r="198.18402696028352" fill="none" stroke="rgba(244,242,237,.30)" stroke-width="1.5"/>
+      <circle cx="486.6914489120245" cy="196.2166230380535" r="242.18402696028352" fill="none" stroke="rgba(244,242,237,.14)" stroke-width="1.5" stroke-dasharray="4 7"/>
+      <line x1="222.50742195174098" y1="196.2166230380535" x2="750.875475872308" y2="196.2166230380535" stroke="rgba(244,242,237,.14)" stroke-width="1.5"/>
+      <line x1="486.6914489120245" y1="-67.96740392223" x2="486.6914489120245" y2="460.40064999833703" stroke="rgba(244,242,237,.14)" stroke-width="1.5"/>
+      <circle cx="486.6914489120245" cy="196.2166230380535" r="7" fill="#F4F2ED"/>
       <circle cx="440.5" cy="343.3" r="15" fill="#E0231D"/>
-  <rect x="14" y="14" width="772" height="422" fill="none" stroke="rgba(17,17,16,.12)" stroke-width="1.5"/>
+  <rect x="14" y="14" width="772" height="422" fill="none" stroke="rgba(244,242,237,.14)" stroke-width="1.5"/>
 </svg>
