@@ -126,7 +126,6 @@ function openPortfolio() {
   const w = Wallet.state;
   openModal(`
     <div class="modal-head"><h3>Portfolio</h3><button class="modal-x" data-close>x</button></div>
-    <div class="modal-sub">${short(w.addr)} on Arc</div>
     <div class="modal-body">
       <div class="tp-rows" style="border-top:0;padding-top:2px">
         <div class="tp-row"><span>Cash balance</span><b>$${w.balance.toLocaleString("en-US", { minimumFractionDigits: 2 })}</b></div>
@@ -147,7 +146,6 @@ const WALLET_OPTS = [
 function openWalletModal() {
   openModal(`
     <div class="modal-head"><h3>Connect wallet</h3><button class="modal-x" data-close>x</button></div>
-    <div class="modal-sub">Select a wallet to browse Arc Predict with your address.</div>
     <div class="modal-body">
       ${WALLET_OPTS.map((w) => `
       <button class="w-opt" data-w="${w.id}">
@@ -465,8 +463,7 @@ const Views = {
         <div class="hero-grid">
           <div>
             <h1 class="reveal">The odds of<br>everything, <span class="hl">live.</span></h1>
-            <p class="sub reveal">Arc Predict is the on-chain prediction market on the Arc network. Back your view with USDC, watch prices move in real time, and win when you're right.</p>
-            <div class="hero-cta reveal">
+            <div class="hero-cta reveal" style="margin-top:26px">
               <a class="btn btn-ink" href="#markets-sec">Browse markets</a>
               <button class="btn btn-out" id="hero-connect">Connect wallet</button>
             </div>
@@ -478,7 +475,7 @@ const Views = {
             </div>
           </div>
           <div class="live-panel reveal">
-            <div class="lp-head"><b><span class="live-dot"></span>Moving markets</b><span class="meta">USDC · Arc</span></div>
+            <div class="lp-head"><b>Moving markets</b></div>
             ${lp.map((m) => `
               <div class="lp-row" data-lp="${m.slug}">
                 <div class="lp-mono">${catLabel(m.cat)[0]}</div>
@@ -510,7 +507,7 @@ const Views = {
       </section>
 
       <section id="markets-sec">
-        <div class="page-head"><div><h1>All markets</h1><p>${MK.length} live markets across politics, crypto, sports and more.</p></div></div>
+        <div class="page-head"><div><h1>All markets</h1></div></div>
         <div class="filterbar" id="filterbar">
           <button class="chip on" data-cat="all">All</button>
           ${Object.entries(ARC.cats).map(([k, v]) => `<button class="chip" data-cat="${k}">${v.label}</button>`).join("")}
@@ -538,7 +535,7 @@ const Views = {
 
       <section class="split">
         <div class="panel reveal">
-          <div class="panel-head"><span class="t"><span class="live-dot"></span><h2>Live activity</h2></span><a href="#/activity" style="font-size:13px;color:var(--red);font-weight:600">See all</a></div>
+          <div class="panel-head"><h2>Activity</h2><a href="#/activity" style="font-size:13px;color:var(--red);font-weight:600">See all</a></div>
           <div id="home-feed"></div>
         </div>
         <div class="panel reveal">
@@ -558,8 +555,7 @@ const Views = {
       <section class="cta-band reveal">
         <div class="cta-in">
           <h2>Your view is worth something.</h2>
-          <p>Join ${fmtN(ARC.meta.traders)} traders turning opinions into prices on the Arc network.</p>
-          <button class="btn btn-red" id="cta-connect">Connect wallet to start</button>
+          <button class="btn btn-red" id="cta-connect" style="margin-top:26px">Connect wallet to start</button>
         </div>
       </section>
     </div>`;
@@ -695,7 +691,7 @@ const Views = {
           </div>
 
           <div class="panel">
-            <div class="panel-head"><span class="t"><span class="live-dot"></span><h2>Recent trades</h2></span><span style="font-size:12px;color:var(--dim)">${fmtN(m.traders)} traders</span></div>
+            <div class="panel-head"><h2>Recent trades</h2><span style="font-size:12px;color:var(--dim)">${fmtN(m.traders)} traders</span></div>
             <div id="mk-feed"></div>
           </div>
 
@@ -795,8 +791,7 @@ const Views = {
       const price = side === "yes" ? m.c : 100 - m.c;
       if (!Wallet.state) {
         body().innerHTML = `
-          <button class="btn btn-ink btn-block" id="tp-connect" style="padding:13px">Connect wallet to trade</button>
-          <div class="tp-note">Connect to see your balance and positions.</div>`;
+          <button class="btn btn-ink btn-block" id="tp-connect" style="padding:13px">Connect wallet to trade</button>`;
         $("#tp-connect").addEventListener("click", openWalletModal);
         return;
       }
@@ -858,13 +853,13 @@ const Views = {
   activity() {
     $("#app").innerHTML = `
     <div class="wrap">
-      <div class="page-head"><div><h1>Activity</h1><p>Every trade on Arc Predict, live as it happens.</p></div></div>
+      <div class="page-head"><div><h1>Activity</h1></div></div>
       <div class="act-filter">
         <button class="chip on" data-f="all">All</button>
         ${Object.entries(ARC.cats).map(([k, v]) => `<button class="chip" data-f="${k}">${v.label}</button>`).join("")}
       </div>
       <div class="panel" style="margin:16px 0 80px">
-        <div class="panel-head"><span class="t"><span class="live-dot"></span><h2 style="font-size:15px">Live feed</h2></span><span style="font-size:12px;color:var(--dim)" id="act-count"></span></div>
+        <div class="panel-head"><h2 style="font-size:15px">All trades</h2><span style="font-size:12px;color:var(--dim)" id="act-count"></span></div>
         <div class="act-list" id="act-list"></div>
       </div>
     </div>`;
@@ -905,7 +900,7 @@ const Views = {
   leaders() {
     $("#app").innerHTML = `
     <div class="wrap">
-      <div class="page-head"><div><h1>Leaderboard</h1><p>Top performing traders this week, ranked by realized profit.</p></div></div>
+      <div class="page-head"><div><h1>Leaderboard</h1></div></div>
       <div class="panel" style="margin:16px 0 80px;max-width:820px">
         <div class="panel-head"><h2 style="font-size:15px">This week</h2><span style="font-size:12px;color:var(--dim)">Resets Sunday 00:00 UTC</span></div>
         ${ARC.leaders.map((l, i) => `
