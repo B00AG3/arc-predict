@@ -345,7 +345,7 @@ function drawChart(cv, data, rangeDays) {
 }
 
 function bindChartHover(cv, data, rangeDays, tipEl) {
-  const move = (e) => {
+  cv.onmousemove = (e) => {
     const r = cv.getBoundingClientRect();
     const frac = Math.min(1, Math.max(0, (e.clientX - r.left - 40) / (r.width - 52)));
     const i = Math.round(frac * (data.length - 1));
@@ -356,8 +356,7 @@ function bindChartHover(cv, data, rangeDays, tipEl) {
     tipEl.style.top = "38%";
     tipEl.innerHTML = `<b>${(v / 10).toFixed(1)}\u00A2</b> · ${dt.toLocaleDateString("en-US", { month: "short", day: "numeric" })}`;
   };
-  cv.addEventListener("mousemove", move);
-  cv.addEventListener("mouseleave", () => { tipEl.style.display = "none"; });
+  cv.onmouseleave = () => { tipEl.style.display = "none"; };
 }
 
 /* ---------------- scroll effects ---------------- */
@@ -645,7 +644,7 @@ const Views = {
   market(slug, params) {
     const m = bySlug[slug];
     if (!m) return this.notfound();
-    const side = params.get("side") === "no" ? "no" : "yes";
+    const sel = { side: params.get("side") === "no" ? "no" : "yes" };
     const cat = catLabel(m.cat);
     const related = MK.filter((x) => x.cat === m.cat && x.slug !== slug).sort((a, b) => b.vol24 - a.vol24).slice(0, 3);
 
@@ -672,7 +671,7 @@ const Views = {
         <div class="mk-main">
           <div class="chart-card">
             <div class="chart-top">
-              <div class="chart-price"><span class="big" data-price="${m.slug}">${cents(m)}</span><span class="delta ${m.change >= 0 ? "up" : "down"}" id="mk-delta">${(m.change >= 0 ? "+" : "") + m.change.toFixed(1)}%</span></div>
+              <div class="chart-price"><span class="big" id="mk-big"></span><span class="delta up" id="mk-delta"></span></div>
               <div class="ranges" id="ranges">
                 <button data-r="1">1D</button>
                 <button data-r="7">1W</button>
@@ -702,7 +701,7 @@ const Views = {
         </div>
 
         <div class="mk-rail">
-          <div class="trade-panel" id="trade-panel">${this.tradePanelHTML(m, side)}</div>
+          <div class="trade-panel" id="trade-panel">${this.tradePanelHTML(m, sel.side)}</div>
           <div class="panel">
             <div class="panel-head"><h2>Order book</h2><span style="font-size:11px;color:var(--dim)">size (USDC)</span></div>
             <div class="ob-head"><span>Price</span><span>Shares</span></div>
@@ -717,11 +716,20 @@ const Views = {
     const cv = $("#mk-chart"), tip = $("#chart-tip");
     let range = 30;
     const sliceFor = (r) => (r === "all" ? m.hist : m.hist.slice(-Math.min(m.hist.length, r * 8)));
+    const renderChartHead = () => {
+      $("#mk-big").textContent = (sel.side === "yes" ? m.c : 100 - m.c) + "\u00A2";
+      const ch = sel.side === "yes" ? m.change : -m.change;
+      const d = $("#mk-delta");
+      d.className = "delta " + (ch >= 0 ? "up" : "down");
+      d.textContent = (ch >= 0 ? "+" : "") + ch.toFixed(1) + "%";
+    };
     const renderChart = () => {
-      const data = sliceFor(range).map((v) => v / 10);
+      const base = sliceFor(range);
+      const data = (sel.side === "yes" ? base : base.map((v) => 1000 - v)).map((v) => v / 10);
       const days = range === "all" ? Math.max(30, Math.round((Date.now() - m.start) / 86400000)) : range;
       drawChart(cv, data, days);
       bindChartHover(cv, data, days, tip);
+      renderChartHead();
     };
     renderChart();
     $$("#ranges button").forEach((b) => b.addEventListener("click", () => {
@@ -757,12 +765,12 @@ const Views = {
     cleanupFns.push(() => Feed.off(onEv));
 
     bindCards($("#app"));
-    this.bindTradePanel(m);
+    this.bindTradePanel(m, sel, () => renderChart());
     initReveals($("#app"));
 
     this.onDrift = () => {
-      const d = $("#mk-delta");
-      if (d) { d.className = "delta " + (m.change >= 0 ? "up" : "down"); d.textContent = (m.change >= 0 ? "+" : "") + m.change.toFixed(1) + "%"; }
+      renderChartHead();
+      renderChart();
       const yesB = $(".tp-btn.yes .c", $("#trade-panel"));
       const noB = $(".tp-btn.no .c", $("#trade-panel"));
       if (yesB) yesB.textContent = m.c + "\u00A2";
@@ -782,9 +790,9 @@ const Views = {
       <div id="tp-body"></div>`;
   },
 
-  bindTradePanel(m) {
+  bindTradePanel(m, sel, onSide) {
     const panel = $("#trade-panel");
-    let side = panel.contains($(".tp-btn.yes.sel")) ? "yes" : "no";
+    let side = sel.side;
     const body = () => $("#tp-body", panel);
 
     const renderBody = () => {
@@ -840,10 +848,11 @@ const Views = {
     };
 
     $$(".tp-btn", panel).forEach((b) => b.addEventListener("click", () => {
-      side = b.dataset.side;
+      side = sel.side = b.dataset.side;
       $(".tp-btn.yes", panel).classList.toggle("sel", side === "yes");
       $(".tp-btn.no", panel).classList.toggle("sel", side === "no");
       renderBody();
+      if (onSide) onSide();
     }));
     renderBody();
     this.refreshTradePanel = () => renderBody();
