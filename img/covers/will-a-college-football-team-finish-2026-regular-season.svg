@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#F4F2ED"/>
+  
+      <circle cx="516.2938712537289" cy="224.429504647851" r="129.51563629554585" fill="none" stroke="#111110" stroke-width="2.5"/>
+      <circle cx="516.2938712537289" cy="224.429504647851" r="173.51563629554585" fill="none" stroke="rgba(17,17,16,.26)" stroke-width="1.5"/>
+      <circle cx="516.2938712537289" cy="224.429504647851" r="217.51563629554585" fill="none" stroke="rgba(17,17,16,.12)" stroke-width="1.5" stroke-dasharray="4 7"/>
+      <line x1="276.778234958183" y1="224.429504647851" x2="755.8095075492747" y2="224.429504647851" stroke="rgba(17,17,16,.12)" stroke-width="1.5"/>
+      <line x1="516.2938712537289" y1="-15.086131647694856" x2="516.2938712537289" y2="463.94514094339684" stroke="rgba(17,17,16,.12)" stroke-width="1.5"/>
+      <circle cx="516.2938712537289" cy="224.429504647851" r="7" fill="#111110"/>
+      <circle cx="458.1" cy="340.1" r="15" fill="#E0231D"/>
+  <rect x="14" y="14" width="772" height="422" fill="none" stroke="rgba(17,17,16,.12)" stroke-width="1.5"/>
+</svg>
